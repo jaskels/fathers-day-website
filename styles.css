@@ -49,7 +49,7 @@ nav a {
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(255, 248, 236, 0.95) 0%, rgba(255, 248, 236, 0.72) 38%, rgba(255, 248, 236, 0.1) 100%),
-    url('assets/father-fishing-lake.png') center / cover no-repeat;
+    url('assets/dad-collage.jpg') center / cover no-repeat;
 }
 
 .hero-overlay {
@@ -242,7 +242,7 @@ footer {
     padding-top: 150px;
     background:
       linear-gradient(180deg, rgba(255, 248, 236, 0.96) 0%, rgba(255, 248, 236, 0.78) 52%, rgba(255, 248, 236, 0.2) 100%),
-      url('assets/father-fishing-lake.png') center / cover no-repeat;
+      url('assets/dad-collage.jpg') center / cover no-repeat;
   }
 
   .fish-scene {
