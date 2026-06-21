@@ -1,8 +1,11 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -13,17 +16,15 @@ body {
 }
 
 .site-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
   z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 7%;
-  background: rgba(255, 248, 236, 0.92);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 248, 236, 0.96);
   box-shadow: 0 3px 18px rgba(0, 0, 0, 0.08);
 }
 
@@ -41,27 +42,27 @@ nav a {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 75px);
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
-  padding: 130px 7% 80px;
+  gap: 40px;
+  padding: 65px 7%;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(255, 248, 236, 0.95) 0%, rgba(255, 248, 236, 0.72) 38%, rgba(255, 248, 236, 0.1) 100%),
-    url('assets/dad-collage.jpg') center / cover no-repeat;
+    radial-gradient(circle at top left, rgba(255, 221, 154, 0.5), transparent 35%),
+    linear-gradient(135deg, #fff8ec 0%, #f7ead6 100%);
 }
 
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 82% 42%, rgba(255, 198, 91, 0.2), transparent 35%);
+  display: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 660px;
+  max-width: 650px;
 }
 
 .small-title {
@@ -73,7 +74,7 @@ nav a {
 }
 
 h1 {
-  font-size: clamp(3.8rem, 9vw, 8.5rem);
+  font-size: clamp(4rem, 8vw, 7.5rem);
   line-height: 0.95;
   color: #08294b;
   margin-bottom: 24px;
@@ -81,7 +82,7 @@ h1 {
 }
 
 .hero-text {
-  max-width: 560px;
+  max-width: 600px;
   font-size: 1.25rem;
   margin-bottom: 28px;
   color: #20384d;
@@ -98,69 +99,25 @@ h1 {
   box-shadow: 0 12px 28px rgba(8, 41, 75, 0.25);
 }
 
-.fish-scene {
-  position: absolute;
-  right: 23%;
-  bottom: 20%;
-  width: 260px;
-  height: 160px;
-  z-index: 3;
-  pointer-events: none;
+.hero-photo {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.fishing-line {
-  position: absolute;
-  right: 130px;
-  top: -215px;
-  width: 2px;
-  height: 300px;
-  background: rgba(255, 255, 255, 0.8);
-  transform: rotate(22deg);
-  transform-origin: bottom;
-  box-shadow: 0 0 4px rgba(8, 41, 75, 0.3);
-}
-
-.fish {
-  position: absolute;
-  left: 80px;
-  top: 32px;
-  font-size: 54px;
-  transform: rotate(-18deg);
-  filter: drop-shadow(0 8px 10px rgba(0,0,0,0.25));
-  animation: jump 2.2s ease-in-out infinite;
-}
-
-.splash {
-  position: absolute;
-  border: 3px solid rgba(255, 255, 255, 0.85);
-  border-radius: 50%;
-  opacity: 0.9;
-}
-
-.splash-one {
-  left: 82px;
-  top: 86px;
-  width: 120px;
-  height: 35px;
-  animation: ripple 2.2s ease-in-out infinite;
-}
-
-.splash-two {
-  left: 110px;
-  top: 102px;
-  width: 70px;
-  height: 22px;
-  animation: ripple 2.2s ease-in-out infinite 0.3s;
-}
-
-@keyframes jump {
-  0%, 100% { transform: translateY(18px) rotate(-12deg); }
-  50% { transform: translateY(-32px) rotate(-28deg); }
-}
-
-@keyframes ripple {
-  0% { transform: scale(0.7); opacity: 0.9; }
-  100% { transform: scale(1.25); opacity: 0; }
+.hero-photo img {
+  width: 100%;
+  max-width: 760px;
+  max-height: 78vh;
+  object-fit: contain;
+  display: block;
+  background: white;
+  border: 14px solid white;
+  border-radius: 24px;
+  box-shadow: 0 22px 55px rgba(8, 41, 75, 0.24);
 }
 
 .message-section,
@@ -226,7 +183,7 @@ footer {
   color: white;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .site-header {
     flex-direction: column;
     gap: 10px;
@@ -235,20 +192,35 @@ footer {
 
   nav a {
     margin: 0 8px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .hero {
-    padding-top: 150px;
-    background:
-      linear-gradient(180deg, rgba(255, 248, 236, 0.96) 0%, rgba(255, 248, 236, 0.78) 52%, rgba(255, 248, 236, 0.2) 100%),
-      url('assets/dad-collage.jpg') center / cover no-repeat;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 45px 6% 60px;
+    text-align: center;
   }
 
-  .fish-scene {
-    right: 4%;
-    bottom: 8%;
-    transform: scale(0.75);
+  .hero-content {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: clamp(3.2rem, 16vw, 5.8rem);
+  }
+
+  .hero-text {
+    font-size: 1.08rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-photo img {
+    max-width: 100%;
+    max-height: none;
+    border: 10px solid white;
+    border-radius: 18px;
   }
 
   .memory-grid {
